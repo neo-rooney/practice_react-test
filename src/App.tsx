@@ -1,10 +1,17 @@
 import "./App.css";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./routes";
+import { AuthContextProvider } from "./context/AuthContext";
+import CommonLayout from "./layout/CommonLayout";
 
 function App() {
-  console.log("App");
-  return <RouterProvider router={router} />;
+  return (
+    <AuthContextProvider>
+      <CommonLayout>
+        <RouterProvider router={router} />
+      </CommonLayout>
+    </AuthContextProvider>
+  );
 }
 
 export default App;
